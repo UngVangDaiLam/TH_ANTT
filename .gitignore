@@ -5,3 +5,10 @@ __pycache__/
 .env
 gitsecure.log
 secure.log*
+certs/
+*.pem
+__pycache__/
+.pytest_cache/
+*.egg-info/
+certs/
+*.pem
