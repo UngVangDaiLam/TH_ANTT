@@ -5,6 +5,7 @@ __pycache__/
 .env
 gitsecure.log
 secure.log*
+netrecon.log
 certs/
 *.pem
 __pycache__/
