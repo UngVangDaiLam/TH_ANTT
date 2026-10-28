@@ -80,7 +80,7 @@ deploy-prod:
   environment: production
 ```
 
-> 📷 `images/02_tao_gitlab_ci.png` – Tạo tệp `.gitlab-ci.yml` trên giao diện GitLab
+> 📷 `images/02_tao_gitlab_ci.png` – Nội dung tệp `.gitlab-ci.yml` đã commit trên GitLab
 >
 > ![Tạo gitlab-ci.yml](images/02_tao_gitlab_ci.png)
 
@@ -115,7 +115,7 @@ deploy-prod:
 Tạo dự án mới **My Pipeline Tutorial Project** (dự án trống, có README), sau đó clone:
 
 ```bash
-git clone git@gitlab.com:<username>/my-pipeline-tutorial-project.git pipeline-tutorial
+git clone git@gitlab.com:UngVangDaiLam/my-pipeline-tutorial-project.git pipeline-tutorial
 cd pipeline-tutorial
 ```
 
@@ -136,18 +136,18 @@ mv website/* .
 rm -r website
 ```
 
-> 📷 `images/07_init_docusaurus.png` – Khởi tạo Docusaurus
+> 📷 `images/07_init_docusaurus.png` – Cây thư mục dự án sau khi thêm mã nguồn Docusaurus
 >
 > ![Init Docusaurus](images/07_init_docusaurus.png)
 
 #### 4.2.3. Cập nhật cấu hình `docusaurus.config.js` (hoặc `.ts`)
 
 ```js
-url: 'https://<username>.gitlab.io',
+url: 'https://ungvangdailam.gitlab.io',
 baseUrl: '/my-pipeline-tutorial-project/',
 ```
 
-> 📷 `images/08_config.png` – Cấu hình `url` và `baseUrl`
+> 📷 `images/08_config.png` – Tệp `docusaurus.config.js` với `url` và `baseUrl` đã cập nhật
 >
 > ![Config](images/08_config.png)
 
@@ -241,7 +241,7 @@ pages:
 >
 > ![Pipeline 2 stage](images/12_pipeline_2_stage.png)
 >
-> 📷 `images/13_pages_deploy.png` – Job `pages` và `pages:deploy` hoàn tất
+> 📷 `images/13_pages_deploy.png` – Log của job `pages` (`mv build/ public/`, tải artifacts thành công)
 >
 > ![pages:deploy](images/13_pages_deploy.png)
 
@@ -250,7 +250,7 @@ pages:
 Vào **Deploy > Pages**, tắt **Use unique domain** (nếu có), mở liên kết ở mục **Access pages**:
 
 ```
-https://<username>.gitlab.io/my-pipeline-tutorial-project
+https://ungvangdailam.gitlab.io/my-pipeline-tutorial-project
 ```
 
 > 📷 `images/14_pages_settings.png` – Cài đặt GitLab Pages
@@ -260,6 +260,9 @@ https://<username>.gitlab.io/my-pipeline-tutorial-project
 > 📷 `images/15_website.png` – Trang Docusaurus sau khi triển khai
 >
 > ![Website](images/15_website.png)
+
+
+> **Ghi chú:** dự án GitLab dùng một trang Docusaurus rút gọn (chỉ phần docs, cấu hình `docusaurus.config.js`) để pipeline build nhanh. Mã nguồn đầy đủ của template `classic` nằm trong thư mục này. Các pipeline thực tế: `#2997051354` (bài 6.2.1, 4 job / 3 stage) và `#2997091498` (bài 6.2.2, build + deploy Pages).
 
 ---
 
