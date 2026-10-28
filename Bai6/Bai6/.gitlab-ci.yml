@@ -1,0 +1,21 @@
+stages: # Danh sách các stage và thứ tự thực thi
+  - build
+  - deploy
+
+build-job:
+  stage: build # Job này thuộc stage `build`
+  image: node
+  script:
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - "build/"
+
+pages:
+  stage: deploy # Job này thuộc stage `deploy`
+  script:
+    - mv build/ public/ # Di chuyển thư mục build sang public
+  artifacts:
+    paths:
+      - "public/"
